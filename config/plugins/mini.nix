@@ -148,7 +148,7 @@ in {
       indentscope = {
         try_as_border = true;
       };
-      jump = {};
+      # jump = {};
       notify = {};
       pick = {};
       pairs = {};
