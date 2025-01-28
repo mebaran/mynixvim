@@ -48,11 +48,9 @@
         packages =
           {
             default = nvim;
+            all = lib.foldl (n: l: n.extend l) nvim (lib.attrValues langs);
           }
-          // lib.mapAttrs (name: value: nvim.extend value) langs
-          // { 
-            all = lib.foldr (n: l: n.extend l) nvim [];
-          };
+          // lib.mapAttrs (name: value: nvim.extend value) langs;
 
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
@@ -60,9 +58,7 @@
         };
 
         devShells = with pkgs;
-          builtins.mapAttrs
-          (a: v: mkShell {buildInputs = [v];})
-          packages;
+          lib.mapAttrs (a: v: mkShell {buildInputs = [v];}) packages;
       };
     };
 }
