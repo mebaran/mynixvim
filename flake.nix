@@ -17,6 +17,7 @@
       python = import ./lang/python.nix;
       web = import ./lang/web.nix;
       sql = import ./lang/sql.nix;
+      golang = import ./lang/golang.nix;
     };
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
