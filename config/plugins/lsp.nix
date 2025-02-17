@@ -1,9 +1,14 @@
 {
-  plugins.lsp = {
-    enable = true;
-    capabilities = "require('blink.cmp').get_lsp_capabilities()";
+  plugins = {
+    lsp = {
+      enable = true;
+      capabilities = "require('blink.cmp').get_lsp_capabilities()";
+    };
+    lspsaga = {
+      enable = true;
+      lightbulb.virtualText = false;
+    };
   };
-  plugins.lspsaga.enable = true;
   autoCmd = let
     lspsaga = action: ''"<cmd>Lspsaga ${action}<cr>"'';
   in [
