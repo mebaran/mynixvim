@@ -3,8 +3,9 @@
     enable = true;
     settings = {
       strategies = {
-        chat.adapter = "anthropic";
-        inline.adapter = "anthropic";
+        chat.adapter = "deepseek";
+        inline.adapter = "deepseek";
+        agent.adapter = "deepseek";
       };
     };
   };

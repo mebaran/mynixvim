@@ -149,7 +149,7 @@ in {
         try_as_border = true;
       };
       # jump = {};
-      notify = {};
+      # notify = {};
       pick = {};
       pairs = {};
       starter = {};

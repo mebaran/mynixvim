@@ -16,6 +16,8 @@
   
   plugins = {
     diffview.enable = true;
+    fidget.enable = true;
+    git-conflict.enable = true;
     lazygit.enable = true;
     nvim-bqf.enable = true;
     render-markdown.enable = true;
