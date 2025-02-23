@@ -38,4 +38,5 @@
       };
     }
   ];
+  plugins.fidget.luaConfig.post = builtins.readFile ./lua/codecompanion_fidget.lua;
 }
