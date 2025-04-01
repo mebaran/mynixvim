@@ -1,6 +1,14 @@
-{
+{pkgs, ...}: let
+  allGrammarPkgs = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+  blacklist = [
+    "ocamllex-grammar"
+  ];
+  grammarFilter = p: !(builtins.elem p.pname blacklist);
+  grammarPkgs = builtins.filter grammarFilter allGrammarPkgs;
+in {
   plugins.treesitter = {
     enable = true;
+    grammarPackages = grammarPkgs; 
     settings = {
       highlight.enable = true;
       indent.enable = true;
