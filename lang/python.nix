@@ -8,7 +8,7 @@
       "black"
       "isort"
     ];
-    dap.dap-python.enable = true;
+    dap-python.enable = true;
   };
   extraPackages = with pkgs.python3Packages; [
     autopep8
