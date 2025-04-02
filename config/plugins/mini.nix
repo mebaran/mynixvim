@@ -1,5 +1,5 @@
-{ lib, ... }:
-let raw = lib.nixvim.mkRaw;
+{lib, ...}: let
+  raw = lib.nixvim.mkRaw;
 in {
   plugins.mini = {
     enable = true;
@@ -143,6 +143,7 @@ in {
         ];
       };
       comment = {};
+      diff = {};
       files = {};
       icons = {};
       indentscope = {
@@ -168,58 +169,58 @@ in {
     luaConfig.post = builtins.readFile ./lua/mini.lua;
   };
   keymaps = let
-      pick = p: raw "require('mini.pick').${p}";
-      extra = p: raw "require('mini.extra').${p}";
-    in [
-      {
-        key = "<leader>ff";
-        action = pick "builtin.files";
-        options.desc = "Pick files";
-      }
-      {
-        key = "<leader>bb";
-        action = pick "builtin.buffers";
-        options.desc = "Pick buffers";
-      }
-      {
-        key = "<leader>sg";
-        action = pick "builtin.grep_live";
-        options.desc = "Pick by grep (live)";
-      }
-      {
-        key = "<leader>\"";
-        action = extra "pickers.registers";
-        options.desc = "Pick registers";
-      }
-      {
-        key = "<leader>sl";
-        action = extra "pickers.lsp";
-        options.desc = "Pick LSP symbols";
-      }
-      {
-        key = "<leader>sk";
-        action = extra "pickers.keymaps";
-        options.desc = "Pick keymaps";
-      }
-      {
-        key = "<leader>fo";
-        action = extra "pickers.oldfiles";
-        options.desc = "Pick oldfiles";
-      }
-      {
-        key = "<leader>sc";
-        action = extra "pickers.treesitter";
-        options.desc = "Pick code (nodes)";
-      }
-      {
-        key = "<leader>sc";
-        action = "<cmd>lua ${(extra ''pickers.history({ scope = ":" })'').__raw}<cr>";
-        options.desc = "Pick command (history)";
-      }
-      {
-        key = "<leader>s/";
-        action = "<cmd>lua ${(extra ''pickers.history({ scope = "/" })'').__raw}<cr>";
-        options.desc = "Pick command (search)";
-      }
-    ];
+    pick = p: raw "require('mini.pick').${p}";
+    extra = p: raw "require('mini.extra').${p}";
+  in [
+    {
+      key = "<leader>ff";
+      action = pick "builtin.files";
+      options.desc = "Pick files";
+    }
+    {
+      key = "<leader>bb";
+      action = pick "builtin.buffers";
+      options.desc = "Pick buffers";
+    }
+    {
+      key = "<leader>sg";
+      action = pick "builtin.grep_live";
+      options.desc = "Pick by grep (live)";
+    }
+    {
+      key = "<leader>\"";
+      action = extra "pickers.registers";
+      options.desc = "Pick registers";
+    }
+    {
+      key = "<leader>sl";
+      action = extra "pickers.lsp";
+      options.desc = "Pick LSP symbols";
+    }
+    {
+      key = "<leader>sk";
+      action = extra "pickers.keymaps";
+      options.desc = "Pick keymaps";
+    }
+    {
+      key = "<leader>fo";
+      action = extra "pickers.oldfiles";
+      options.desc = "Pick oldfiles";
+    }
+    {
+      key = "<leader>sc";
+      action = extra "pickers.treesitter";
+      options.desc = "Pick code (nodes)";
+    }
+    {
+      key = "<leader>sc";
+      action = "<cmd>lua ${(extra ''pickers.history({ scope = ":" })'').__raw}<cr>";
+      options.desc = "Pick command (history)";
+    }
+    {
+      key = "<leader>s/";
+      action = "<cmd>lua ${(extra ''pickers.history({ scope = "/" })'').__raw}<cr>";
+      options.desc = "Pick command (search)";
+    }
+  ];
 }
