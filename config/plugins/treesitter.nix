@@ -1,10 +1,5 @@
 {pkgs, ...}: let
-  allGrammarPkgs = pkgs.vimPlugins.nvim-treesitter.allGrammars;
-  blacklist = [
-    "ocamllex-grammar"
-  ];
-  grammarFilter = p: !(builtins.elem p.pname blacklist);
-  grammarPkgs = builtins.filter grammarFilter allGrammarPkgs;
+  grammarPkgs = pkgs.vimPlugins.nvim-treesitter.allGrammars;
 in {
   plugins.treesitter = {
     enable = true;

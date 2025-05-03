@@ -41,7 +41,7 @@ in {
     writebackup = false;
     updatetime = 250;
   };
-  diagnostics = {
+  diagnostics.settings = {
     virtual_text = false;
     underline = true;
     severity_sort = true;
