@@ -48,7 +48,7 @@
       in rec {
         packages =
           {
-            default = nvim;
+            default = nvim.extend langs.nixlang;
             all = lib.foldl (n: l: n.extend l) nvim (lib.attrValues langs);
           }
           // lib.mapAttrs (name: value: nvim.extend value) langs;
