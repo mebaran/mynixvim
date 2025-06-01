@@ -6,8 +6,9 @@
     ./conform.nix
     ./flash.nix
     ./gitsigns.nix
-    ./lualine.nix
+    ./goose.nix
     ./lsp.nix
+    ./lualine.nix
     ./mini.nix
     ./treesitter.nix
     ./trouble.nix
@@ -29,5 +30,4 @@
   extraPlugins = with pkgs.vimPlugins; [
     nvim-unception
   ];
-
 }
