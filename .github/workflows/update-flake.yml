@@ -38,8 +38,7 @@ jobs:
             
             Changes:
             - Updated nixpkgs to latest unstable
-            - Updated home-manager to latest version
-            - Updated mynixvim to latest version
+            - Updated nixvim to latest version
             
             Please review the changes before merging.
           branch: update-flake-inputs
