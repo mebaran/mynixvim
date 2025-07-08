@@ -2,7 +2,7 @@
   # Import all your configuration modules here
   imports = [./editor.nix ./keymaps.nix ./plugins];
 
-  colorschemes.melange.enable = true;
+  colorschemes.dracula-nvim.enable = true;
 
   extraPackages = with pkgs; [
     fd
@@ -22,4 +22,7 @@
       plugins = true;
     };
   };
+
+  vimAlias = true;
+  vimDiffAlias = true;
 }
