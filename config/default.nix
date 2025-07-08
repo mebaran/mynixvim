@@ -24,5 +24,4 @@
   };
 
   vimAlias = true;
-  vimDiffAlias = true;
 }
