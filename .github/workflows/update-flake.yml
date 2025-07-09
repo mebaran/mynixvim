@@ -3,7 +3,7 @@ name: Update Flake Inputs
 on:
   schedule:
     - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
-  workflow_dispatch:  # Allow manual triggering
+  workflow_dispatch:     # Allow manual triggering
 
 permissions:
   contents: write
@@ -12,6 +12,7 @@ permissions:
 jobs:
   update-flake:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,7 +29,7 @@ jobs:
         run: nix flake check
 
       - name: Create Pull Request
-        id: create-pr # Added ID for referencing outputs
+        id: create-pr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,10 +45,10 @@ jobs:
             Please review the changes before merging.
           branch: update-flake-inputs
           delete-branch: true
-      - name: Enable auto-merge for PR
+
+      - name: Merge PR immediately
         if: steps.create-pr.outputs.pull-request-number
-        uses: peter-evans/enable-pull-request-auto-merge@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
-          merge-method: squash # or merge, rebase
+        run: |
+          gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --squash --delete-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
