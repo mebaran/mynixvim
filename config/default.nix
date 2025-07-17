@@ -6,11 +6,9 @@
 
   extraPackages = with pkgs; [
     fd
-    fzf
     git
     lazygit
     ripgrep
-    goose-cli
   ];
 
   performance = {
