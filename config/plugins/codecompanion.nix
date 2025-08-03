@@ -1,6 +1,13 @@
-{
+{pkgs, ...}: {
   plugins.codecompanion = {
+    package = pkgs.vimPlugins.codecompanion-nvim.overrideAttrs {
+      nvimSkipModules = [
+        "codecompanion.providers.actions.fzf_lua"
+        "minimal"
+      ];
+    };
     enable = true;
+
     settings = {
       log_level = "DEBUG";
       strategies = {
@@ -11,7 +18,7 @@
       display = {
         diff = {
           enabled = true;
-          close_chat_at = 240;  #Close an open chat buffer if the total columns of your display are less than...
+          close_chat_at = 240; #Close an open chat buffer if the total columns of your display are less than...
           layout = "vertical"; #vertical|horizontal split for default provider
           provider = "mini_diff"; #default|mini_diff
         };

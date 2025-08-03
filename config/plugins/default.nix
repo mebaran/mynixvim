@@ -28,6 +28,11 @@
   };
 
   extraPlugins = with pkgs.vimPlugins; [
-    nvim-unception
+    flatten-nvim
   ];
+  extraConfigLuaPre = ''
+    require('flatten').setup();
+  '';
+
+
 }
