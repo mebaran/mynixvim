@@ -49,12 +49,14 @@
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
       in rec {
-        packages =
-          rec {
-            default = nvim.extend langs.nixlang;
-            all = lib.foldl (n: l: n.extend l) default (lib.attrValues langs);
+        packages = let
+          baseNvim = nvim.extend langs.nixlang;
+        in
+          {
+            default = baseNvim;
+            all = lib.foldl (n: l: n.extend l) nvim (lib.attrValues langs);
           }
-          // lib.mapAttrs (name: value: nvim.extend value) langs;
+          // lib.mapAttrs (name: value: baseNvim.extend value) langs;
 
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
