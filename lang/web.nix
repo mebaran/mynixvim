@@ -12,9 +12,7 @@
     };
   };
   extraPackages = with pkgs; [
+    bun
     prettierd
-    nodejs
-    typescript
-    nodePackages.npm
   ];
 }

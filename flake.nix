@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim = { 
+    nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -25,7 +25,7 @@
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       flake = {
-        inherit langs;  
+        inherit langs;
       };
 
       systems = [
@@ -50,9 +50,9 @@
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
       in rec {
         packages =
-          {
+          rec {
             default = nvim.extend langs.nixlang;
-            all = lib.foldl (n: l: n.extend l) nvim (lib.attrValues langs);
+            all = lib.foldl (n: l: n.extend l) default (lib.attrValues langs);
           }
           // lib.mapAttrs (name: value: nvim.extend value) langs;
 
