@@ -144,6 +144,7 @@ in {
       };
       comment = {};
       diff = {};
+      extra = {};
       files = {};
       icons = {};
       indentscope = {
@@ -168,58 +169,65 @@ in {
     };
     luaConfig.post = builtins.readFile ./lua/mini.lua;
   };
-  keymaps = let
-    pick = p: raw "require('mini.pick').${p}";
-    extra = p: raw "require('mini.extra').${p}";
-  in [
+  keymaps = [
     {
       key = "<leader>ff";
-      action = pick "builtin.files";
+      action = raw "MiniPick.builtin.files";
       options.desc = "Pick files";
     }
     {
+      key = "<leader>fe";
+      action = raw "MiniExtra.pickers.explorer";
+      options.desc = "Pick file explorer";
+    }
+    {
+      key = "<leader>fa";
+      action = raw "function() MiniPick.builtin.cli({ command = 'fd --hidden --no-ignore' }) end";
+      options.desc = "Pick files (all including .gitignore)";
+    }
+    {
       key = "<leader>bb";
-      action = pick "builtin.buffers";
+      action = raw "MiniPick.builtin.buffers";
       options.desc = "Pick buffers";
     }
     {
       key = "<leader>sg";
-      action = pick "builtin.grep_live";
+      action = raw "MiniPick.builtin.grep_live";
       options.desc = "Pick by grep (live)";
     }
     {
       key = "<leader>\"";
-      action = extra "pickers.registers";
+      action = raw "MiniExtra.pickers.registers";
       options.desc = "Pick registers";
     }
     {
       key = "<leader>sl";
-      action = extra "pickers.lsp";
+      action = raw "MiniExtra.pickers.lsp";
       options.desc = "Pick LSP symbols";
     }
     {
       key = "<leader>sk";
-      action = extra "pickers.keymaps";
+      action = raw "MiniExtra.pickers.keymaps";
       options.desc = "Pick keymaps";
     }
     {
       key = "<leader>fo";
-      action = extra "pickers.oldfiles";
+      action = raw "MiniExtra.pickers.oldfiles";
       options.desc = "Pick oldfiles";
     }
     {
       key = "<leader>sc";
-      action = extra "pickers.treesitter";
+      action = raw "MiniExtra.pickers.treesitter";
       options.desc = "Pick code (nodes)";
     }
     {
       key = "<leader>sc";
-      action = "<cmd>lua ${(extra ''pickers.history({ scope = ":" })'').__raw}<cr>";
+      action = raw "function() MiniExtra.pickers.history({ scope = ':' }) end";
       options.desc = "Pick command (history)";
     }
     {
       key = "<leader>s/";
-      action = "<cmd>lua ${(extra ''pickers.history({ scope = "/" })'').__raw}<cr>";
+      action = raw "function() MiniExtra.pickers.history({ scope = '/' }) end";
       options.desc = "Pick command (search)";
     }
   ];

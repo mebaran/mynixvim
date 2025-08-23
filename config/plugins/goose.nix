@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  extraPackages = [
+    pkgs.goose-cli
+  ];
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "goose-nvim";

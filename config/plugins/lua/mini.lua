@@ -1,6 +1,6 @@
 --Mini Indentscope
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "dbui", "terminal", "help", "alpha", "dashboard", "trouble", "lazy", "mason", "nofile" },
+    pattern = { "dbui", "terminal", "help", "alpha", "dashboard", "trouble", "lazy", "mason", "nofile", "snacks_terminal" },
     callback = function()
         vim.b.miniindentscope_disable = true
     end,
@@ -27,7 +27,7 @@ end
 vim.keymap.set("n", "-", mini_minus, { desc = "Open Mini Files over current file" })
 
 -- Mini Files explorer buffer customization
-local show_dotfiles = true
+local show_dotfiles = false 
 local filter_show = function(fs_entry)
     return true
 end
@@ -74,3 +74,12 @@ vim.api.nvim_create_autocmd("User", {
 
 -- Mini Pick
 vim.ui.select = require("mini.pick").ui_select
+local choose_all = function()
+  local matches = MiniPick.get_picker_matches().all
+  MiniPick.default_choose_marked(matches)
+end
+require('mini.pick').setup({
+  mappings = {
+    choose_all = { char = '<C-q>', func = choose_all },
+  },
+})

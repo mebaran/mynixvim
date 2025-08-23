@@ -8,11 +8,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    mynixoverlays = {
+      url = "github:/mebaran/mynixoverlays";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixvim,
     flake-parts,
+    mynixoverlays,
     ...
   } @ inputs: let
     langs = {
@@ -36,11 +41,14 @@
       ];
 
       perSystem = {
-        pkgs,
         system,
         lib,
         ...
       }: let
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [ mynixoverlays.overlays.default ];
+        };
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
         nixvimModule = {
