@@ -1,0 +1,4 @@
+{pkgs, ...}:
+{
+  colorscheme = "minispring";
+}

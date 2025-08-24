@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   # Import all your configuration modules here
-  imports = [./editor.nix ./keymaps.nix ./plugins];
-
-  colorschemes.dracula-nvim.enable = true;
+  imports = [./colorscheme.nix ./editor.nix ./keymaps.nix ./plugins];
 
   extraPackages = with pkgs; [
     fd
