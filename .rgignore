@@ -1,0 +1,7 @@
+# .rgignore file to unignore specific directories
+
+# Unignore .goose directory
+!.goose/
+
+# Unignore .github directory
+!.github/

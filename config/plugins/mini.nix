@@ -150,8 +150,6 @@ in {
       indentscope = {
         try_as_border = true;
       };
-      # jump = {};
-      # notify = {};
       pick = {};
       pairs = {};
       starter = {};
@@ -179,11 +177,6 @@ in {
       key = "<leader>fe";
       action = raw "MiniExtra.pickers.explorer";
       options.desc = "Pick file explorer";
-    }
-    {
-      key = "<leader>fa";
-      action = raw "function() MiniPick.builtin.cli({ command = 'fd --hidden --no-ignore' }) end";
-      options.desc = "Pick files (all including .gitignore)";
     }
     {
       key = "<leader>bb";
