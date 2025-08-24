@@ -1,24 +1,15 @@
 {pkgs, ...}: {
   # DAP support
   imports = [./dap.nix];
+  plugins.dap-python.enable = true;
   inherit (import ./dap.nix) keymaps;
- 
-  # Lsp config with ty and ruff
-  plugins = {
-    lsp.enable = true;
-    lsp.servers.ruff.enable = true;
-    conform-nvim.settings.formatters_by_ft.python = [
-      "autopep8"
-      "black"
-      "isort"
-    ];
-    dap-python.enable = true;
+
+  # LSP config with ty and ruff
+  plugins.lsp = {
+    enable = true;
+    servers.ruff.enable = true;
   };
-  extraPackages = with pkgs.python3Packages; [
-    autopep8
-    black
-    isort
-  ] ++ [
+  extraPackages = [
     pkgs.ty
   ];
   extraConfigLua = ''
