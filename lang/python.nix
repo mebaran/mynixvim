@@ -7,12 +7,7 @@
   # LSP config with ty and ruff
   plugins.lsp = {
     enable = true;
+    servers.basedpyright.enable = true;
     servers.ruff.enable = true;
   };
-  extraPackages = [
-    pkgs.ty
-  ];
-  extraConfigLua = ''
-    vim.lsp.enable('ty')
-  '';
 }
