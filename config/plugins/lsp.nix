@@ -6,7 +6,7 @@
     };
     lspsaga = {
       enable = true;
-      lightbulb.virtualText = false;
+      settings.lightbulb.virtualText = false;
     };
   };
   autoCmd = [
