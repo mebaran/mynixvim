@@ -40,7 +40,13 @@ in {
     swapfile = false;
     writebackup = false;
     updatetime = 250;
+
+    # folding config
+    foldlevel = 99;
+    foldlevelstart = 99;
+    foldenable = true;
   };
+
   diagnostic.settings = {
     virtual_text = false;
     underline = true;
