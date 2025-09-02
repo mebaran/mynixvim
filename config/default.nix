@@ -7,6 +7,7 @@
     git
     lazygit
     ripgrep
+    goose-cli
   ];
 
   performance = {
@@ -17,6 +18,7 @@
       nvimRuntime = true;
       plugins = true;
     };
+    combinePlugins.enable = true;
   };
 
   vimAlias = true;

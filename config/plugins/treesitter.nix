@@ -26,4 +26,9 @@ in {
   };
   plugins.treesitter-textobjects.enable = true;
   plugins.ts-autotag.enable = true;
+
+  opts = {
+    foldmethod="expr";
+    foldexpr = "nvim_treesitter_expr()";
+  };
 }
