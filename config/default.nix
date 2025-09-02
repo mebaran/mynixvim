@@ -19,6 +19,9 @@
       plugins = true;
     };
     combinePlugins.enable = true;
+    combinePlugins.standalonePlugins = [
+      "blink.cmp"
+    ];
   };
 
   vimAlias = true;
