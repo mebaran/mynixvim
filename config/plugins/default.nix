@@ -12,6 +12,7 @@
     ./mini.nix
     ./treesitter.nix
     ./trouble.nix
+    ./ufo.nix
     ./yanky.nix
   ];
   

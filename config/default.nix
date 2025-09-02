@@ -18,10 +18,11 @@
       nvimRuntime = true;
       plugins = true;
     };
-    combinePlugins.enable = true;
-    combinePlugins.standalonePlugins = [
-      "blink.cmp"
-    ];
+    # combinePlugins.enable = true;
+    # combinePlugins.standalonePlugins = [
+    #   "blink.cmp"
+    #   pkgs.goose-cli
+    # ];
   };
 
   vimAlias = true;
