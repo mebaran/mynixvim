@@ -83,3 +83,16 @@ require('mini.pick').setup({
     choose_all = { char = '<C-q>', func = choose_all },
   },
 })
+
+-- Mini Starter
+require("mini.starter").setup({
+    items = {
+    function()
+      if _G.MiniSessions == nil then return {} end
+      return MiniStarter.sections.sessions(5, true)()
+    end,
+    MiniStarter.sections.recent_files(5, false, false),
+    MiniStarter.sections.pick(),
+    MiniStarter.sections.builtin_actions(),
+  }
+})
