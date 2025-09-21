@@ -47,7 +47,7 @@
       }: let
         pkgs = import inputs.nixpkgs {
           inherit system;
-          overlays = [ mynixoverlays.overlays.default ];
+          overlays = [mynixoverlays.overlays.default];
         };
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};

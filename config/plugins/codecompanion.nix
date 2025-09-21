@@ -1,19 +1,34 @@
 {pkgs, ...}: {
   plugins.codecompanion = {
-    package = pkgs.vimPlugins.codecompanion-nvim.overrideAttrs {
-      nvimSkipModules = [
-        "codecompanion.providers.actions.fzf_lua"
-        "minimal"
-      ];
-    };
     enable = true;
 
     settings = {
       log_level = "DEBUG";
       strategies = {
-        chat.adapter = "anthropic";
-        inline.adapter = "anthropic";
-        agent.adapter = "anthropic";
+        chat.adapter = "openrouter";
+        inline.adapter = "openrouter";
+        agent.adapter = "openrouter";
+      };
+      adapters.http = {
+        openrouter.__raw = ''function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              url = "https://openrouter.ai/api",
+              api_key = "OPENROUTER_API_KEY",
+              chat_url = "/v1/chat/completions",
+            },
+            schema = {
+              model = {
+                default = "qwen/qwen3-coder",
+                choices = {
+                  "x-ai/grok-code-fast-1",
+                  "openai/gpt5",
+                }
+              },
+            }
+          })
+          end
+        '';
       };
       display = {
         diff = {
@@ -46,7 +61,7 @@
     }
     {
       mode = "v";
-      key = "ga";
+      key = "ca";
       action = "<cmd>CodeCompanionChat Add<cr>";
       options = {
         noremap = true;
@@ -54,5 +69,8 @@
       };
     }
   ];
+
   plugins.fidget.luaConfig.post = builtins.readFile ./lua/codecompanion_fidget.lua;
+
+  extraConfigVim = "cabbrev cc CodeCompanion";
 }
