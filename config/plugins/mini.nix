@@ -209,7 +209,7 @@ in {
       options.desc = "Pick oldfiles";
     }
     {
-      key = "<leader>sc";
+      key = "<leader>st";
       action = raw "MiniExtra.pickers.treesitter";
       options.desc = "Pick code (nodes)";
     }

@@ -4,6 +4,7 @@
     ./autocomplete.nix
     ./codecompanion.nix
     ./conform.nix
+    ./diffview.nix
     ./flash.nix
     ./gitsigns.nix
     ./goose.nix
@@ -17,7 +18,6 @@
   ];
   
   plugins = {
-    diffview.enable = true;
     fidget.enable = true;
     git-conflict.enable = true;
     lazygit.enable = true;
@@ -34,6 +34,4 @@
   extraConfigLuaPre = ''
     require('flatten').setup();
   '';
-
-
 }

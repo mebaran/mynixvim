@@ -9,7 +9,7 @@
   keymaps = [
     {
       key = "<leader>y";
-      action = "YankRingHistory";
+      action = "<cmd>YankyRingHistory<CR>";
       mode = ["n" "x"];
       options.desc = "Show Yank history";
     }

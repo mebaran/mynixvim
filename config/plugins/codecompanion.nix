@@ -3,30 +3,31 @@
     enable = true;
 
     settings = {
-      log_level = "DEBUG";
+      log_level = "INFO";
       strategies = {
         chat.adapter = "openrouter";
         inline.adapter = "openrouter";
         agent.adapter = "openrouter";
       };
       adapters.http = {
-        openrouter.__raw = ''function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "https://openrouter.ai/api",
-              api_key = "OPENROUTER_API_KEY",
-              chat_url = "/v1/chat/completions",
-            },
-            schema = {
-              model = {
-                default = "qwen/qwen3-coder",
-                choices = {
-                  "x-ai/grok-code-fast-1",
-                  "openai/gpt5",
-                }
+        openrouter.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "https://openrouter.ai/api",
+                api_key = "OPENROUTER_API_KEY",
+                chat_url = "/v1/chat/completions",
               },
-            }
-          })
+              schema = {
+                model = {
+                  default = "qwen/qwen3-coder",
+                  choices = {
+                    "x-ai/grok-code-fast-1",
+                    "openai/gpt-5",
+                  }
+                },
+              }
+            })
           end
         '';
       };

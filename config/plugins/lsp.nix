@@ -6,7 +6,11 @@
     };
     lspsaga = {
       enable = true;
-      settings.lightbulb.virtualText = false;
+      settings = {
+        lightbulb.virtualText = false;
+        symbol_in_winbar.enable = true;
+        outline.win_width = 50;
+      };
     };
   };
   autoCmd = [
@@ -29,6 +33,13 @@
       key = "gF";
       action = lspsaga "finder";
       options.desc = "Goto symbol finder";
+      options.buffer = true;
+    }
+    {
+      mode = "n";
+      key = "gO";
+      action = lspsaga "outline";
+      options.desc = "Goto LSP outline";
       options.buffer = true;
     }
     {
@@ -107,6 +118,13 @@
       key = "<leader>gy";
       action = lspsaga "peek_type_definition";
       options.desc = "Peek t(y)pe definition";
+      options.buffer = true;
+    }
+    {
+      mode = "n";
+      key = "<leader>gY";
+      action = lspsaga "goto_type_definition";
+      options.desc = "Goto t(y)pe definition";
       options.buffer = true;
     }
     {
