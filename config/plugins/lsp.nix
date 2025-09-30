@@ -75,7 +75,7 @@
     {
       mode = ["i" "n"];
       key = "<C-k>";
-      action = "signature_help";
+      lspBufAction = "signature_help";
       options.desc = "Signature help";
     }
     {
@@ -120,12 +120,6 @@
     }
     {
       mode = "n";
-      key = "<leader>cr";
-      action = "rename";
-      options.desc = "Code rename";
-    }
-    {
-      mode = "n";
       key = "<leader>ca";
       action = lspsaga "code_action";
       options.desc = "Code action";
@@ -133,8 +127,14 @@
     {
       mode = ["n" "v"];
       key = "<leader>=";
-      action = "format";
+      lspBufAction = "format";
       options.desc = "Code format";
+    }
+    {
+      mode = "n";
+      key = "<leader>cr";
+      lspBufAction = "rename";
+      options.desc = "Code rename";
     }
   ];
   keymaps = [
