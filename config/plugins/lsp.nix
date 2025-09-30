@@ -1,5 +1,6 @@
 {
   plugins = {
+    lspconfig.enable = true;
     lspsaga = {
       enable = true;
       settings = {
