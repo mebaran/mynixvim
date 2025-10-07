@@ -18,10 +18,11 @@
       nvimRuntime = true;
       plugins = true;
     };
-    combinePlugins.enable = true;
+    # combinePlugins.enable = true;
     combinePlugins.standalonePlugins = [
       "mini.nvim"
       "blink.cmp"
+      "goose.nvim"
     ];
   };
 
