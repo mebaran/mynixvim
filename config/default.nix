@@ -20,8 +20,8 @@
     };
     combinePlugins.enable = true;
     combinePlugins.standalonePlugins = [
+      "mini.nvim"
       "blink.cmp"
-      pkgs.goose-cli
     ];
   };
 
