@@ -1,4 +1,4 @@
 {
-  plugins.lsp.enable = true;
-  plugins.lsp.servers.prolog_ls.enable = true;
+  lsp.enable = true;
+  lsp.servers.prolog_ls.enable = true;
 }
