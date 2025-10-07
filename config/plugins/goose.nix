@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  aitools,
+  ...
+}: {
   extraPackages = [
-    pkgs.goose-cli
+    aitools.goose-cli
   ];
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {

@@ -3,13 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    mynixoverlays = {
-      url = "github:/mebaran/mynixoverlays";
+
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -17,7 +20,6 @@
   outputs = {
     nixvim,
     flake-parts,
-    mynixoverlays,
     ...
   } @ inputs: let
     langs = {
@@ -47,13 +49,15 @@
       }: let
         pkgs = import inputs.nixpkgs {
           inherit system;
-          overlays = [mynixoverlays.overlays.default];
         };
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
         nixvimModule = {
           inherit pkgs;
           module = import ./config;
+          extraSpecialArgs = {
+            aitools = inputs.nix-ai-tools.packages.${system};
+          };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
       in rec {
