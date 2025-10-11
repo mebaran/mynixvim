@@ -7,7 +7,6 @@
     git
     lazygit
     ripgrep
-    goose-cli
   ];
 
   performance = {
