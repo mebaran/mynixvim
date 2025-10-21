@@ -1,7 +1,7 @@
 {
   plugins.diffview = {
     enable = true;
-    extraOptions = {
+    settings = {
       view = {
         default.winbarInfo = true;
         mergeTool.winbarInfo = true;
