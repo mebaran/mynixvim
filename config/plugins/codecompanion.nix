@@ -23,7 +23,8 @@
                   default = "qwen/qwen3-coder",
                   choices = {
                     "x-ai/grok-code-fast-1",
-                    "openai/gpt-5",
+                    "openai/gpt-5-codex",
+                    "anthropic/claude-sonnet-4.5"
                   }
                 },
               }
@@ -35,7 +36,6 @@
         diff = {
           enabled = true;
           close_chat_at = 240; #Close an open chat buffer if the total columns of your display are less than...
-          layout = "vertical"; #vertical|horizontal split for default provider
           provider = "mini_diff"; #default|mini_diff
         };
       };
