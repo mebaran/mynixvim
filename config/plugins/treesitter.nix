@@ -1,9 +1,17 @@
 {pkgs, ...}: let
   grammarPkgs = pkgs.vimPlugins.nvim-treesitter.allGrammars;
 in {
+  # plugins.treesitter-textobjects.enable = true;
+  plugins.ts-autotag.enable = true;
+  plugins.treesitter-context = {
+    enable = true;
+    settings = {
+      mode = "cursor";
+    };
+  };
   plugins.treesitter = {
     enable = true;
-    grammarPackages = grammarPkgs; 
+    grammarPackages = grammarPkgs;
     settings = {
       highlight.enable = true;
       indent.enable = true;
@@ -18,12 +26,4 @@ in {
       };
     };
   };
-  plugins.treesitter-context = {
-    enable = true;
-    settings = {
-      mode = "cursor";
-    };
-  };
-  plugins.treesitter-textobjects.enable = true;
-  plugins.ts-autotag.enable = true;
 }

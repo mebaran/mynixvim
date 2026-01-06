@@ -17,7 +17,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-ai-tools = {
-      url = "github:numtide/nix-ai-tools";
+      url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
