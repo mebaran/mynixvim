@@ -9,6 +9,17 @@
         inline.adapter = "codex";
         agent.adapter = "codex";
       };
+      adapters.acp = {
+        codex.__raw = ''
+          function()
+            return require("codecompanion.adapters").extend("codex", {
+              defaults = {
+                auth_method = "chatgpt"
+              }
+            })
+          end
+        '';
+      };
       adapters.http = {
         openrouter.__raw = ''
           function()
