@@ -4,9 +4,9 @@
 
     settings = {
       log_level = "INFO";
-      strategies = {
+      interactions = {
         chat.adapter = "codex";
-        inline.adapter = "codex";
+        inline.adapter = "openrouter";
         agent.adapter = "codex";
       };
       adapters.acp = {
