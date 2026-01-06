@@ -1,13 +1,13 @@
-{pkgs, ...}: {
+{aitools, ...}: {
   plugins.codecompanion = {
     enable = true;
 
     settings = {
       log_level = "INFO";
       strategies = {
-        chat.adapter = "openrouter";
-        inline.adapter = "openrouter";
-        agent.adapter = "openrouter";
+        chat.adapter = "codex";
+        inline.adapter = "codex";
+        agent.adapter = "codex";
       };
       adapters.http = {
         openrouter.__raw = ''
@@ -69,6 +69,10 @@
         silent = true;
       };
     }
+  ];
+
+  extraPackages = [
+    aitools.codex-acp
   ];
 
   plugins.fidget.luaConfig.post = builtins.readFile ./lua/codecompanion_fidget.lua;
