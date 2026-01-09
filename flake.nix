@@ -34,6 +34,7 @@
       sql = import ./lang/sql.nix;
       golang = import ./lang/golang.nix;
       json = import ./lang/json.nix;
+      markdown = import ./lang/markdown.nix;
     };
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -71,7 +72,7 @@
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
       in rec {
         packages = let
-          baseNvim = lib.foldl (n: l: n.extend l) nvim [langs.nixlang langs.json];
+          baseNvim = lib.foldl (n: l: n.extend l) nvim [langs.nixlang langs.json langs.markdown];
         in
           {
             default = baseNvim;

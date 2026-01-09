@@ -5,7 +5,6 @@
   extraPackages = with pkgs; [
     fd
     git
-    jq
     lazygit
     ripgrep
   ];
