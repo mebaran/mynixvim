@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   grammarPkgs = pkgs.vimPlugins.nvim-treesitter.allGrammars;
 in {
-  # plugins.treesitter-textobjects.enable = true;
+  plugins.treesitter-textobjects.enable = true;
   plugins.ts-autotag.enable = true;
   plugins.treesitter-context = {
     enable = true;
