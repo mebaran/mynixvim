@@ -13,7 +13,7 @@
         owner = "azorng";
         repo = "goose.nvim";
         rev = "main";
-        sha256 = "sha256-QPhPQbrJjXXE3UFtPTGKugavBVQKCLbi2PoQc1HwSds=";
+        sha256 = "sha256-eCilRNQWTkfC+12vB+S/YoTlxI2EHOFA37Cw5ivaHfM=";
       };
       doCheck = false;
     })
