@@ -19,6 +19,7 @@
     };
     combinePlugins.enable = true;
     combinePlugins.standalonePlugins = [
+        "goose-nvim"
         "friendly-snippets"
     #   "mini.nvim"
         "blink.cmp"
