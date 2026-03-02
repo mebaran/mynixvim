@@ -17,13 +17,14 @@
       nvimRuntime = true;
       plugins = true;
     };
-    combinePlugins.enable = true;
-    combinePlugins.standalonePlugins = [
-        "goose-nvim"
+    combinePlugins = {
+      enable = true;
+      pathsToLink = [ "/template" ];
+      standalonePlugins = [
         "friendly-snippets"
-    #   "mini.nvim"
         "blink.cmp"
-    ];
+      ];
+    };
   };
 
   vimAlias = true;
