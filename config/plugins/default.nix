@@ -7,7 +7,6 @@
     ./diffview.nix
     ./flash.nix
     ./gitsigns.nix
-    ./goose.nix
     ./lsp.nix
     ./lualine.nix
     ./mini.nix
