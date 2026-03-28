@@ -23,6 +23,7 @@
       standalonePlugins = [
         "friendly-snippets"
         "blink.cmp"
+        "snacks.nvim"
       ];
     };
   };

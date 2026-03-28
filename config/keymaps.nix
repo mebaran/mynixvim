@@ -68,14 +68,24 @@
     {
       mode = "n";
       key = "<leader>tv";
-      action = "<cmd>vsplit | terminal <cr>";
+      action.__raw = ''        
+        function() 
+          Snacks.terminal('zsh', {win={position="right", width=0.5}})
+        end
+      '';
       options.desc = "Split terminal vertically";
     }
     {
       mode = "n";
       key = "<leader>tx";
-      action = "<cmd>split | terminal<cr>";
+      action.__raw = "function() Snacks.terminal() end";
       options.desc = "Split terminal horizontally";
+    }
+    {
+      mode = "n";
+      key = "<leader>lg";
+      action.__raw = "function() Snacks.lazygit() end";
+      options.desc = "Pop up Lazygit";
     }
 
     # Diagnostics

@@ -10,6 +10,8 @@
     ./lsp.nix
     ./lualine.nix
     ./mini.nix
+    ./opencode.nix
+    ./snacks.nix
     ./treesitter.nix
     ./trouble.nix
     ./ufo.nix
@@ -19,7 +21,6 @@
   plugins = {
     fidget.enable = true;
     git-conflict.enable = true;
-    lazygit.enable = true;
     nvim-bqf.enable = true;
     render-markdown.enable = true;
     sqlite-lua.enable = true;
