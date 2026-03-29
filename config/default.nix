@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   # Import all your configuration modules here
-  imports = [./colorscheme.nix ./editor.nix ./keymaps.nix ./plugins];
+  imports = [./plugins ./editor.nix ./keymaps.nix ./colorscheme.nix];
 
   extraPackages = with pkgs; [
     fd
