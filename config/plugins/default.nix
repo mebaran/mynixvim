@@ -10,7 +10,6 @@
     ./lsp.nix
     ./lualine.nix
     ./mini.nix
-    ./opencode.nix
     ./snacks.nix
     ./treesitter.nix
     ./trouble.nix

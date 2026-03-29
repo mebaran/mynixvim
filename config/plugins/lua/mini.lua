@@ -91,7 +91,7 @@ require("mini.starter").setup({
       if _G.MiniSessions == nil then return {} end
       return MiniStarter.sections.sessions(5, true)()
     end,
-    MiniStarter.sections.recent_files(5, false, false),
+    MiniStarter.sections.recent_files(5, true, true),
     MiniStarter.sections.pick(),
     MiniStarter.sections.builtin_actions(),
   }

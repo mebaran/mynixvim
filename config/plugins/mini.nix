@@ -164,6 +164,7 @@ in {
           update_n_lines = "gsn";
         };
       };
+      visits = {};
     };
     luaConfig.post = builtins.readFile ./lua/mini.lua;
   };
@@ -177,6 +178,11 @@ in {
       key = "<leader>fe";
       action = raw "MiniExtra.pickers.explorer";
       options.desc = "Pick file explorer";
+    }
+    {
+      key = "<leader>fv";
+      action = raw "MiniExtra.pickers.visit_paths";
+      options.desc = "Pick frecent files";
     }
     {
       key = "<leader>bb";
