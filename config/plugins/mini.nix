@@ -185,6 +185,11 @@ in {
       options.desc = "Pick frecent files";
     }
     {
+      key = "<leader>fl";
+      action = raw "MiniExtra.pickers.visit_labels";
+      options.desc = "Pick frecent labels";
+    }
+    {
       key = "<leader>bb";
       action = raw "MiniPick.builtin.buffers";
       options.desc = "Pick buffers";
