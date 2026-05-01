@@ -19,7 +19,6 @@
   
   plugins = {
     fidget.enable = true;
-    git-conflict.enable = true;
     nvim-bqf.enable = true;
     render-markdown.enable = true;
     sqlite-lua.enable = true;
